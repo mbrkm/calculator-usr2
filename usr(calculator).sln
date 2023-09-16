@@ -1,0 +1,37 @@
+using System;
+
+double a;
+double b;
+char z;
+Console.WriteLine("Введите первое число");
+a = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите второе число");
+b = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите знак операции");
+z = Convert.ToChar(Console.ReadLine());
+if (z == '+')
+{
+    Console.WriteLine( a + "+" + b + "=" + (a + b));
+}
+else if (z == '-')
+{
+    Console.WriteLine( a + "-" + b + "=" + (a - b));
+}
+else if (z == '*')
+{
+    Console.WriteLine( a + "*" + b + "=" + (a * b));
+}
+else if (b == 0 & z == '/')
+{
+    Console.WriteLine("Ошибка, деление на ноль невозможно!");
+}
+else if (z == '/')
+{
+    Console.WriteLine( a + "/" + b + "=" + (a / b));
+}
+else
+{
+    Console.WriteLine("Неизвестный знак операции!");
+}
+
+Console.ReadKey();
