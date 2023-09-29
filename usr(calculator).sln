@@ -1,37 +1,67 @@
 using System;
 
-double a;
-double b;
-char z;
-Console.WriteLine("Введите первое число");
-a = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите второе число");
-b = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите знак операции");
-z = Convert.ToChar(Console.ReadLine());
-if (z == '+')
+namespace usrCalculator
 {
-    Console.WriteLine( a + "+" + b + "=" + (a + b));
-}
-else if (z == '-')
-{
-    Console.WriteLine( a + "-" + b + "=" + (a - b));
-}
-else if (z == '*')
-{
-    Console.WriteLine( a + "*" + b + "=" + (a * b));
-}
-else if (b == 0 & z == '/')
-{
-    Console.WriteLine("Ошибка, деление на ноль невозможно!");
-}
-else if (z == '/')
-{
-    Console.WriteLine( a + "/" + b + "=" + (a / b));
-}
-else
-{
-    Console.WriteLine("Неизвестный знак операции!");
-}
+    class Program
+    {
+        static double a;
+        static double b;
+        static char d;
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Доступные операции: + - * /");
+            Console.WriteLine("Введите первое число:");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите нужное действие:");
+            d = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Введите второе число:");
+            b = Convert.ToDouble(Console.ReadLine());
+            if (d == '+')
+            {
+                plus();
+            }
+            else if (d == '-')
+            {
+                minus();
+            }
+            else if (d == '*')
+            {
+                umnojit();
+            }
+            else if (d == '/')
+            {
+                delit();
+            }
+            Console.ReadKey();
+        }
 
-Console.ReadKey();
+        static void plus()
+        {
+            Console.WriteLine("Выбранное действие - сумма");
+            Console.WriteLine("Результат:" + (a + b));
+        }
+        static void minus()
+        {
+            Console.WriteLine("Выбранное действие - разность");
+            Console.WriteLine("Результат:" + (a - b));
+        }
+        static void umnojit()
+        {
+            Console.WriteLine("Выбранное действие - умножение");
+            Console.WriteLine("Результат:" + (a * b));
+        }
+        static void delit()
+        {
+            if (b == 0)
+            {
+                Console.WriteLine("Тут такое не работает, можете даже не пытаться)");
+            }
+            else
+            {
+                Console.WriteLine("Выбранное действие - деление");
+                Console.WriteLine("Результат:" + (a / b));
+            }
+        }
+
+    }
+}
